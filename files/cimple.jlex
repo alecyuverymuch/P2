@@ -124,8 +124,7 @@ return new Symbol(sym.EOF);
                 S = new Symbol(sym.RETURN,
                           new StrLitTokenVal(yyline+1, CharNum.num, val));
                 break;
-              case default:
-                break;
+              default:
             }
             return S;
           }
