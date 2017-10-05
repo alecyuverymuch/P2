@@ -72,30 +72,62 @@ return new Symbol(sym.EOF);
 
 %%
 
-{LETTER}+ { // Reserve Words 
-            String[] reserveWords = { "bool",
-                                      "int",
-                                      "void",
-                                      "true",
-                                      "false",
-                                      "struct",
-                                      "cin",
-                                      "cout",
-                                      "if",
-                                      "else",
-                                      "while",
-                                      "return" };
+{LETTER}+ { // Reserve Words
             String val = yytext();
-            int index = Array.asList(reserveWords).indexOf(val);
-            if (index >= 0)
-            {
-              Symbol S = new Symbol(index+2,
-                               new StrLitTokenVal(yyline+1, CharNum.num, val));
-              CharNum.num += yytext.length();
-              return S;
+            Symbol S;
+            switch(val){
+              case "bool":
+                S = new Symbol(sym.BOOL,
+                          new StrLitTokenVal(yyline+1, CharNum.num, val));
+                break;
+              case "int":
+                S = new Symbol(sym.INT,
+                          new StrLitTokenVal(yyline+1, CharNum.num, val));
+                break;
+              case "void":
+                S = new Symbol(sym.VOID,
+                          new StrLitTokenVal(yyline+1, CharNum.num, val));
+                break;
+              case "true":
+                S = new Symbol(sym.TRUE,
+                          new StrLitTokenVal(yyline+1, CharNum.num, val));
+                break;
+              case "false":
+                S = new Symbol(sym.FALSE,
+                          new StrLitTokenVal(yyline+1, CharNum.num, val));
+                break;
+              case "struct":
+                S = new Symbol(sym.STRUCT,
+                          new StrLitTokenVal(yyline+1, CharNum.num, val));
+                break;
+              case "cin":
+                S = new Symbol(sym.CIN,
+                          new StrLitTokenVal(yyline+1, CharNum.num, val));
+                break;
+              case "cout":
+                S = new Symbol(sym.COUT,
+                          new StrLitTokenVal(yyline+1, CharNum.num, val));
+                break;
+              case "if":
+                S = new Symbol(sym.IF,
+                          new StrLitTokenVal(yyline+1, CharNum.num, val));
+                break;
+              case "else":
+                S = new Symbol(sym.ELSE,
+                          new StrLitTokenVal(yyline+1, CharNum.num, val));
+                break;
+              case "while":
+                S = new Symbol(sym.WHILE,
+                          new StrLitTokenVal(yyline+1, CharNum.num, val));
+                break;
+              case "return":
+                S = new Symbol(sym.RETURN,
+                          new StrLitTokenVal(yyline+1, CharNum.num, val));
+                break;
+              case default:
+                break;
             }
-
-
+            return S;
           }
 
 {DIGIT}+  { // NOTE: the following computation of the integer value does NOT
