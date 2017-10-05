@@ -71,8 +71,9 @@ return new Symbol(sym.EOF);
 %line
 
 %%
-// Reserve Words
-{LETTER}+ { String[] reserveWords = { "bool",
+
+{LETTER}+ { // Reserve Words 
+            String[] reserveWords = { "bool",
                                       "int",
                                       "void",
                                       "true",
