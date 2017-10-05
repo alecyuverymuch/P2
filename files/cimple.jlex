@@ -125,6 +125,8 @@ return new Symbol(sym.EOF);
                           new StrLitTokenVal(yyline+1, CharNum.num, val));
                 break;
               default:
+                S = new Symbol(sym.EOF,
+                          new StrLitTokenVal(yyline+1, CharNum.num, val));
             }
             return S;
           }
