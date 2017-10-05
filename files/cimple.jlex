@@ -56,6 +56,7 @@ class CharNum {
 }
 %%
 
+LETTER=       [a-zA-Z]
 DIGIT=        [0-9]
 WHITESPACE=   [\040\t]
 
@@ -70,6 +71,31 @@ return new Symbol(sym.EOF);
 %line
 
 %%
+// Reserve Words
+{LETTER}+ { String[] reserveWords = { "bool",
+                                      "int",
+                                      "void",
+                                      "true",
+                                      "false",
+                                      "struct",
+                                      "cin",
+                                      "cout",
+                                      "if",
+                                      "else",
+                                      "while",
+                                      "return" };
+            String val = yytext();
+            int index = Array.asList(reserveWords).indexOf(val);
+            if (index >= 0)
+            {
+              Symbol S = new Symbol(index+2,
+                               new StrLitTokenVal(yyline+1, CharNum.num, val));
+              CharNum.num += yytext.length();
+              return S;
+            }
+
+
+          }
 
 {DIGIT}+  { // NOTE: the following computation of the integer value does NOT
             //       check for overflow.  This must be changed.
