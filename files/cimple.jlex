@@ -60,6 +60,8 @@ LETTER=       [a-zA-Z]
 DIGIT=        [0-9]
 WHITESPACE=   [\040\t]
 
+%state IDENTIFIER
+
 %implements java_cup.runtime.Scanner
 %function next_token
 %type java_cup.runtime.Symbol
@@ -72,72 +74,95 @@ return new Symbol(sym.EOF);
 
 %%
 
-{LETTER}+ { // Reserve Words
+{LETTER}+ { // RESERVE WORDS
             String val = yytext();
             Symbol S;
             switch(val){
               case "bool":
                 S = new Symbol(sym.BOOL,
-                          new StrLitTokenVal(yyline+1, CharNum.num, val));
+                  new TokenVal(yyline+1, CharNum.num));
                 break;
               case "int":
                 S = new Symbol(sym.INT,
-                          new StrLitTokenVal(yyline+1, CharNum.num, val));
+                  new TokenVal(yyline+1, CharNum.num));
                 break;
               case "void":
                 S = new Symbol(sym.VOID,
-                          new StrLitTokenVal(yyline+1, CharNum.num, val));
+                  new TokenVal(yyline+1, CharNum.num));
                 break;
               case "true":
                 S = new Symbol(sym.TRUE,
-                          new StrLitTokenVal(yyline+1, CharNum.num, val));
+                  new TokenVal(yyline+1, CharNum.num));
                 break;
               case "false":
                 S = new Symbol(sym.FALSE,
-                          new StrLitTokenVal(yyline+1, CharNum.num, val));
+                  new TokenVal(yyline+1, CharNum.num));
                 break;
               case "struct":
                 S = new Symbol(sym.STRUCT,
-                          new StrLitTokenVal(yyline+1, CharNum.num, val));
+                  new TokenVal(yyline+1, CharNum.num));
                 break;
               case "cin":
                 S = new Symbol(sym.CIN,
-                          new StrLitTokenVal(yyline+1, CharNum.num, val));
+                  new TokenVal(yyline+1, CharNum.num));
                 break;
               case "cout":
                 S = new Symbol(sym.COUT,
-                          new StrLitTokenVal(yyline+1, CharNum.num, val));
+                  new TokenVal(yyline+1, CharNum.num));
                 break;
               case "if":
                 S = new Symbol(sym.IF,
-                          new StrLitTokenVal(yyline+1, CharNum.num, val));
+                  new TokenVal(yyline+1, CharNum.num));
                 break;
               case "else":
                 S = new Symbol(sym.ELSE,
-                          new StrLitTokenVal(yyline+1, CharNum.num, val));
+                  new TokenVal(yyline+1, CharNum.num));
                 break;
               case "while":
                 S = new Symbol(sym.WHILE,
-                          new StrLitTokenVal(yyline+1, CharNum.num, val));
+                  new TokenVal(yyline+1, CharNum.num));
                 break;
               case "return":
                 S = new Symbol(sym.RETURN,
-                          new StrLitTokenVal(yyline+1, CharNum.num, val));
+                  new TokenVal(yyline+1, CharNum.num));
                 break;
               default:
-                S = new Symbol(sym.EOF,
-                          new StrLitTokenVal(yyline+1, CharNum.num, val));
+                S = yybegin(IDENTIFIER);
             }
             return S != null ? S : null;
           }
 
-{DIGIT}+  { // NOTE: the following computation of the integer value does NOT
-            //       check for overflow.  This must be changed.
-            int val = (new Integer(yytext())).intValue();
-            Symbol S = new Symbol(sym.INTLITERAL,
-                             new IntLitTokenVal(yyline+1, CharNum.num, val));
+<IDENTIFIER> {LETTER}+
+          { // IDENTIFIERS
+            String val = yytext();
+            Symbol S = new Symbol(sym.ID,
+              new IdTokenVal(yyline+1, CharNum, val));
             CharNum.num += yytext().length();
             return S;
+          }
+
+({LETTER}|"_")({LETTER}|{DIGIT}|"_")* 
+          { // IDENTIFIERS
+            String val = yytext();
+            Symbol S = new Symbol(sym.ID,
+              new IdTokenVal(yyline+1, CharNum, val));
+            CharNum.num += yytext().length();
+            return S;
+          }
+
+{DIGIT}+  { // INTERGER LITERALS
+            int val = 0;
+            try {
+              val = (new Integer(yytext())).intValue();
+            } catch (Exception e) {
+              val = Integer.MAX_VALUE;
+              ErrMsg.warn(yyline+1, CharNum.num,
+                "integer literal too large; using max value");
+            }
+              Symbol S = new Symbol(sym.INTLITERAL,
+                new IntLitTokenVal(yyline+1, CharNum.num, val));
+              CharNum.num += yytext().length();
+              return S;
           }
 
 \n        { CharNum.num = 1; }
