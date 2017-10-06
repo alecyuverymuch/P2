@@ -127,9 +127,11 @@ return new Symbol(sym.EOF);
                   new TokenVal(yyline+1, CharNum.num));
                 break;
               default:
-                yybegin(IDENTIFIER);
+                S = new Symbol(sym.ID,
+                  new IdTokenVal(yyline+1, CharNum.num, val));
             }
-            return S != null ? S : null;
+            CharNum.num += yytext().length();
+            return S;
           }
 
 <IDENTIFIER> {LETTER}+
