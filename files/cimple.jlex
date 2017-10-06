@@ -127,13 +127,13 @@ return new Symbol(sym.EOF);
                   new TokenVal(yyline+1, CharNum.num));
                 break;
               default:
-                S = yybegin(IDENTIFIER);
+                yybegin(IDENTIFIER);
             }
             return S != null ? S : null;
           }
 
 <IDENTIFIER> {LETTER}+
-          { // IDENTIFIERS
+          { // IDENTIFIER
             String val = yytext();
             Symbol S = new Symbol(sym.ID,
               new IdTokenVal(yyline+1, CharNum.num, val));
