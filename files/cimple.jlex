@@ -136,7 +136,7 @@ return new Symbol(sym.EOF);
           { // IDENTIFIERS
             String val = yytext();
             Symbol S = new Symbol(sym.ID,
-              new IdTokenVal(yyline+1, CharNum, val));
+              new IdTokenVal(yyline+1, CharNum.num, val));
             CharNum.num += yytext().length();
             return S;
           }
@@ -145,7 +145,7 @@ return new Symbol(sym.EOF);
           { // IDENTIFIERS
             String val = yytext();
             Symbol S = new Symbol(sym.ID,
-              new IdTokenVal(yyline+1, CharNum, val));
+              new IdTokenVal(yyline+1, CharNum.num, val));
             CharNum.num += yytext().length();
             return S;
           }
