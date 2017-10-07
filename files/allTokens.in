@@ -54,3 +54,5 @@ return
 "is this legal ' ? if so why \' "
 "what chars can go before reserved words"
 "worked"
+< return >
+;while,
