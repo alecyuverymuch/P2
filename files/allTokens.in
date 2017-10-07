@@ -54,6 +54,4 @@ return
 "is this legal ' ? if so why \' "
 "what chars can go before reserved words"
 "worked"
-< return >
-;while,
-return "bool";
+3000000000000
