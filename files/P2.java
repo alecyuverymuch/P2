@@ -187,7 +187,7 @@ public class P2 {
         fos.close();
     }
 
-    private static testBadTokens() throws IOException {
+    private static void testBadTokens() throws IOException {
         // open input and output files
         FileOutputStream fos = null;
         try {
