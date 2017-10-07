@@ -41,3 +41,17 @@ return
 >=
 =
 3000000000
+""
+"&!88"
+"use \n to denote a newline character"
+"include a quote like this \" and a backslash like this \\"
+"\n"
+"\t"
+"\'"
+"\""
+"\?"
+"\\"
+"just\nsome\tescaped\'text\"nothing\?wrong\\here"
+"is this legal ' ? if so why \' "
+"what chars can go before reserved words"
+"worked"
