@@ -35,7 +35,7 @@ public class P2 {
             System.err.println("Cannot write to output file badTokens.out");
             System.exit(-1);
         }
-        PrintStream ps = new Printstream(fos);
+        PrintStream ps = new PrintStream(fos);
         System.setErr(ps);
         // open input and output files
         FileReader inFile = null;
@@ -214,7 +214,7 @@ public class P2 {
 
         // create and call the scanner
         Yylex scanner = new Yylex(inFile);
-        String err = scanner.next_token();
+        Symbol err = scanner.next_token();
         while (token.sym != sym.EOF) {
             switch (token.sym) {
             case sym.BOOL:
