@@ -56,3 +56,4 @@ return
 "worked"
 < return >
 ;while,
+return "bool";
