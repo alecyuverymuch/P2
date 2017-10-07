@@ -60,8 +60,6 @@ LETTER=       [a-zA-Z]
 DIGIT=        [0-9]
 WHITESPACE=   [\040\t]
 
-%state IDENTIFIER
-
 %implements java_cup.runtime.Scanner
 %function next_token
 %type java_cup.runtime.Symbol
@@ -130,15 +128,6 @@ return new Symbol(sym.EOF);
                 S = new Symbol(sym.ID,
                   new IdTokenVal(yyline+1, CharNum.num, val));
             }
-            CharNum.num += yytext().length();
-            return S;
-          }
-
-<IDENTIFIER> {LETTER}+
-          { // IDENTIFIER
-            String val = yytext();
-            Symbol S = new Symbol(sym.ID,
-              new IdTokenVal(yyline+1, CharNum.num, val));
             CharNum.num += yytext().length();
             return S;
           }
