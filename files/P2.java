@@ -216,7 +216,7 @@ public class P2 {
                 ps.println(((IdTokenVal)token.value).idVal);
                 break;
             case sym.INTLITERAL:  
-                PseudoClassState.println(((IntLitTokenVal)token.value).intVal);
+                ps.println(((IntLitTokenVal)token.value).intVal);
                 break;
             case sym.STRINGLITERAL: 
                 ps.println(((StrLitTokenVal)token.value).strVal);
@@ -226,9 +226,7 @@ public class P2 {
             } // end switch
 
             token = scanner.next_token();
-        } // end while
-        outFile.close();
-
+        }
         ps.close();
         fos.close();
     }
