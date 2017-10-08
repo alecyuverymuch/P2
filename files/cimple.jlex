@@ -75,7 +75,7 @@ return new Symbol(sym.EOF);
 
 %%
 
-[\/\/]({LETTER}|{DIGIT}|{WHITESPACE})*
+"//"({LETTER}|{DIGIT}|{WHITESPACE})*
           { // Comments
           }
 
