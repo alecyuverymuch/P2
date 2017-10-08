@@ -1,6 +1,6 @@
 1:1 ***WARNING*** integer literal too large; using max value
 2:1 ***ERROR*** illegal character ignored: @
 3:1 ***ERROR*** unterminated string literal ignored
-4:2 ***ERROR*** unterminated string literal ignored
-5:3 ***ERROR*** string literal with bad escaped character ignored
+4:1 ***ERROR*** unterminated string literal ignored
+5:1 ***ERROR*** string literal with bad escaped character ignored
 6:1 ***ERROR*** unterminated string literal with bad escaped character ignored
