@@ -153,9 +153,10 @@ return new Symbol(sym.EOF);
           }
 
 {DIGIT}+  { // INTERGER LITERALS
+            String in = yytext();
             int val = 0;
             try {
-              val = (new Integer(yytext())).intValue();
+              val = (new Integer(in)).intValue();
             } catch (Exception e) {
               val = Integer.MAX_VALUE;
               ErrMsg.warn(yyline+1, CharNum.num,
@@ -163,7 +164,7 @@ return new Symbol(sym.EOF);
             }
               Symbol S = new Symbol(sym.INTLITERAL,
                 new IntLitTokenVal(yyline+1, CharNum.num, val));
-              CharNum.num += yytext().length();
+              CharNum.num += in.length();
               return S;
           }
 
@@ -172,7 +173,7 @@ return new Symbol(sym.EOF);
 	    //Und + bad escape case! 
 	    ErrMsg.fatal(yyline+1, CharNum.num,
                          "unterminated string literal with bad escaped character ignored");
-      CharNum.num += yytext().length();
+      CharNum.num = 1;
 	  }
 
 [\"]({REGSTR}|[\\]{GOODESC}|[\\]{BADESC})*[\\][\n]
@@ -180,7 +181,7 @@ return new Symbol(sym.EOF);
 	    //covers \[\n] case 
 	    ErrMsg.fatal(yyline+1, CharNum.num,
                          "unterminated string literal with bad escaped character ignored");
-      CharNum.num += yytext().length();
+      CharNum.num = 1;
 	  }
 
 [\"]({REGSTR}|[\\]{GOODESC})*[\n]
@@ -188,7 +189,7 @@ return new Symbol(sym.EOF);
 	    //und 
 	    ErrMsg.fatal(yyline+1, CharNum.num,
                          "unterminated string literal ignored");
-      CharNum.num += yytext().length();
+      CharNum.num = 1;
 	  }
 
 
@@ -197,7 +198,7 @@ return new Symbol(sym.EOF);
 	  {
 	    ErrMsg.fatal(yyline+1, CharNum.num,
                          "string literal with bad escaped character ignored");
-      CharNum.num += yytext().length();
+      CharNum.num = 1
 	  }
 
 [\"]({REGSTR}|[\\]{GOODESC})*[\"]  
