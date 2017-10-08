@@ -205,6 +205,14 @@ return new Symbol(sym.EOF);
 
 {WHITESPACE}+  { CharNum.num += yytext().length(); }
 
+"//"(LETTER|DIGIT|WHITESPACE)
+          { // Comments
+          }
+
+"#"(LETTER|DIGIT|WHITESPACE)
+          { // Comments
+          }
+
 "{"       { Symbol S = new Symbol(sym.LCURLY, new TokenVal(yyline+1, CharNum.num));
             CharNum.num++;
             return S;
