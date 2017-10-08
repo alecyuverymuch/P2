@@ -17,6 +17,9 @@ public class P2 {
     
         // ADD CALLS TO OTHER TEST METHODS HERE
         testBadTokens();
+        CharNum.num = 1;
+
+        testComments();
     }
 
     /**
@@ -177,12 +180,17 @@ public class P2 {
         outFile.close();
     }
 
+    /**
+     * testBadTokens
+     * 
+     * Open and reads from badTokens.in and writes out to badTokens.out
+     */
     private static void testBadTokens() throws IOException {
         FileOutputStream fos = null;
         try {
-            fos = new FileOutputStream("badTokens.err");
+            fos = new FileOutputStream("badTokensErr.out");
         } catch(IOException e) {
-            System.err.println("Cannot write to output file badTokens.err");
+            System.err.println("Cannot write to output file badTokensErr.out");
             System.exit(-1);
         }
         PrintStream ps = new PrintStream(fos);
@@ -229,9 +237,9 @@ public class P2 {
     private static void testComments() throws IOException {
         FileOutputStream fos = null;
         try {
-            fos = new FileOutputStream("badTokens.err");
+            fos = new FileOutputStream("commentPrint.out");
         } catch(IOException e) {
-            System.err.println("Cannot write to output file badTokens.err");
+            System.err.println("Cannot write to output file commentPrint.out");
             System.exit(-1);
         }
         PrintStream ps = new PrintStream(fos);
@@ -244,10 +252,10 @@ public class P2 {
             inFile = new FileReader("comment.in");
             outFile = new PrintWriter(new FileWriter("comment.out"));
         } catch (FileNotFoundException ex) {
-            System.err.println("File badTokens.in not found.");
+            System.err.println("File comment.in not found.");
             System.exit(-1);
         } catch (IOException ex) {
-            System.err.println("badTokens.out cannot be opened.");
+            System.err.println("comment.out cannot be opened.");
             System.exit(-1);
         }
         Yylex scanner = new Yylex(inFile);
