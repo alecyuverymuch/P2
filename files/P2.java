@@ -381,6 +381,7 @@ public class P2 {
 			default:
 				outFile.println("UNKNOWN TOKEN");
             } // end switch
-        outFile.close();
+            outFile.close();
+        }
     }
 }
