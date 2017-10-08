@@ -41,6 +41,7 @@ test:
 	diff badTokens.out badTokensExp.out
 	diff badTokensErr.out badTokensExpErr.out
 	diff comment.in commentPrint.out
+	diff comment.out commentExp.out
 
 ###
 # clean up
