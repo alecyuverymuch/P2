@@ -184,10 +184,8 @@ public class P2 {
      * testBadTokens
      * 
      * Open and reads from badTokens.in and writes out to badTokens.out
-     * This tests for bad token inputs and will compare the badTokens.out file 
-     * with the expected output in badTokensExp.out with the diff command. 
-     * The test will also catch error messages and write them to 
-     * badTokensErr.out and compare it with badTokensExpErr.out. 
+     * This tests for bad token inputs and will catch all warning or error 
+     * messages and compare them to an expected output.
      */
     private static void testBadTokens() throws IOException {
         
