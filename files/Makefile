@@ -39,7 +39,6 @@ test:
 	java -cp $(CP) P2 
 	diff allTokens.in allTokens.out
 	diff badTokens.out badTokensExp.out
-	diff badTokensErr.out badTokensExpErr.out
 	diff comment.out commentExp.out
 
 ###
