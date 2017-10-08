@@ -200,7 +200,7 @@ public class P2 {
             fos = new FileOutputStream("badTokens.out");
             ps = new PrintStream(fos);
             System.setErr(ps);
-        } catch (Exeption ex) {
+        } catch (FileNotFoundException e) {
             System.err.println("File error.");
             System.exit(-1);
         }
