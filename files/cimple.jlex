@@ -77,12 +77,10 @@ return new Symbol(sym.EOF);
 
 "//"({LETTER}|{DIGIT}|{WHITESPACE})*
           { // Comments
-            System.out.println(yytext());
           }
 
 "#"({LETTER}|{DIGIT}|{WHITESPACE})*
           { // Comments
-            System.out.println(yytext());
           }
 
 {LETTER}+ { // RESERVE WORDS

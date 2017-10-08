@@ -25,7 +25,7 @@ public class P2 {
     /**
      * testAllTokens
      *
-     * Open and read from file allTokens.txt
+     * Open and read from file allTokens.in
      * For each token read, write the corresponding string to allTokens.out
      * If the input file contains all tokens, one per line, we can verify
      * correctness of the scanner by comparing the input and output files
@@ -184,6 +184,10 @@ public class P2 {
      * testBadTokens
      * 
      * Open and reads from badTokens.in and writes out to badTokens.out
+     * This tests for bad token inputs and will compare the badTokens.out file 
+     * with the expected output in badTokensExp.out with the diff command. 
+     * The test will also catch error messages and write them to 
+     * badTokensErr.out and compare it with badTokensExpErr.out. 
      */
     private static void testBadTokens() throws IOException {
         FileOutputStream fos = null;
@@ -234,18 +238,15 @@ public class P2 {
         fos.close();
     }
 
+    /**
+     * testComments
+     * 
+     * Open and reads from comment.in and writes out to comment.out
+     * The jlex file will ignore the comments and will expect the comment.out
+     * file to be empty.
+     */
     private static void testComments() throws IOException {
-        FileOutputStream fos = null;
-        try {
-            fos = new FileOutputStream("commentPrint.out");
-        } catch(IOException e) {
-            System.err.println("Cannot write to output file commentPrint.out");
-            System.exit(-1);
-        }
-        PrintStream ps = new PrintStream(fos);
-        System.setErr(ps);
-        System.setOut(ps);
-
+        
         FileReader inFile = null;
         PrintWriter outFile = null;
         try {
@@ -263,9 +264,6 @@ public class P2 {
         while (token.sym != sym.EOF) {
             token = scanner.next_token();
         }
-
         outFile.close();
-        ps.close();
-        fos.close();
     }
 }
