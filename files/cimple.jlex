@@ -79,7 +79,7 @@ return new Symbol(sym.EOF);
           { // Comments
           }
 
-[\#]({LETTER}|{DIGIT}|{WHITESPACE})*
+"#"({LETTER}|{DIGIT}|{WHITESPACE})*
           { // Comments
           }
 
