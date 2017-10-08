@@ -1,0 +1,5 @@
+1:1 ***WARNING*** integer literal too large; using max value
+2:1 ***ERROR*** unterminated string literal ignored
+3:2 ***ERROR*** unterminated string literal ignored
+4:3 ***ERROR*** string literal with bad escaped character ignored
+5:1 ***ERROR*** unterminated string literal with bad escaped character ignored
