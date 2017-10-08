@@ -191,7 +191,6 @@ public class P2 {
      */
     private static void testBadTokens() throws IOException {
         
-
         FileReader inFile = null;
         FileOutputStream fos = null;
         PrintStream ps = null;
@@ -201,11 +200,8 @@ public class P2 {
             fos = new FileOutputStream("badTokens.out");
             ps = new PrintStream(fos);
             System.setErr(ps);
-        } catch (FileNotFoundException ex) {
-            System.err.println("File not found.");
-            System.exit(-1);
-        } catch (IOException ex) {
-            System.err.println("File cannot be opened.");
+        } catch (Exeption ex) {
+            System.err.println("File error.");
             System.exit(-1);
         }
         Yylex scanner = new Yylex(inFile);
