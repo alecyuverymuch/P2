@@ -75,6 +75,14 @@ return new Symbol(sym.EOF);
 
 %%
 
+"//"(LETTER|DIGIT|WHITESPACE)*
+          { // Comments
+          }
+
+"#"(LETTER|DIGIT|WHITESPACE)*
+          { // Comments
+          }
+
 {LETTER}+ { // RESERVE WORDS
             String val = yytext();
             Symbol S;
@@ -204,14 +212,6 @@ return new Symbol(sym.EOF);
 \n        { CharNum.num = 1; }
 
 {WHITESPACE}+  { CharNum.num += yytext().length(); }
-
-"//"(LETTER|DIGIT|WHITESPACE)
-          { // Comments
-          }
-
-"#"(LETTER|DIGIT|WHITESPACE)
-          { // Comments
-          }
 
 "{"       { Symbol S = new Symbol(sym.LCURLY, new TokenVal(yyline+1, CharNum.num));
             CharNum.num++;
