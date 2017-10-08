@@ -198,7 +198,7 @@ return new Symbol(sym.EOF);
 	  {
 	    ErrMsg.fatal(yyline+1, CharNum.num,
                          "string literal with bad escaped character ignored");
-      CharNum.num = 1
+      CharNum.num = 1;
 	  }
 
 [\"]({REGSTR}|[\\]{GOODESC})*[\"]  
