@@ -39,7 +39,7 @@ test:
 	java -cp $(CP) P2 
 	diff allTokens.in allTokens.out
 	diff badTokens.out badTokensExp.out
-	diff comment.out commentExp.out
+	diff comment.out empty.out
 
 ###
 # clean up
