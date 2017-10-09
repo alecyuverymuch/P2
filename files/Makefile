@@ -51,4 +51,4 @@ clean:
 cleantest:
 	rm -f allTokens.out
 	rm -f badTokens.out
-	rm -f badTokensErr.out
+	rm -f comment.out
