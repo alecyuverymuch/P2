@@ -173,7 +173,7 @@ return new Symbol(sym.EOF);
 	    //Und + bad escape case! 
 	    ErrMsg.fatal(yyline+1, CharNum.num,
                          "unterminated string literal with bad escaped character ignored");
-      CharNum.num = 1;
+      	    CharNum.num = 1;
 	  }
 
 [\"]({REGSTR}|[\\]{GOODESC}|[\\]{BADESC})*[\\][\n]
@@ -181,7 +181,7 @@ return new Symbol(sym.EOF);
 	    //covers \[\n] case 
 	    ErrMsg.fatal(yyline+1, CharNum.num,
                          "unterminated string literal with bad escaped character ignored");
-      CharNum.num = 1;
+            CharNum.num = 1;
 	  }
 
 [\"]({REGSTR}|[\\]{GOODESC})*[\n]
@@ -189,7 +189,7 @@ return new Symbol(sym.EOF);
 	    //und 
 	    ErrMsg.fatal(yyline+1, CharNum.num,
                          "unterminated string literal ignored");
-      CharNum.num = 1;
+            CharNum.num = 1;
 	  }
 
 
@@ -198,7 +198,7 @@ return new Symbol(sym.EOF);
 	  {
 	    ErrMsg.fatal(yyline+1, CharNum.num,
                          "string literal with bad escaped character ignored");
-      CharNum.num = 1;
+            CharNum.num += yytext().length();
 	  }
 
 [\"]({REGSTR}|[\\]{GOODESC})*[\"]  
