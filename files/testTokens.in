@@ -1,0 +1,200 @@
+"" 
+"\n"
+"\n\?\'\\\t\""
+"just\nsome\tescaped\'text\"nothing\?wrong\\here" 
+"is this legal ' ? if so why\' "
+"&!88^&*()$@!`~_-%<>1234567890=+[]{}|;:*/" //end of string tests
+< bool >
+<bool>
+{bool}
+(bool)
+;bool,
+=bool<<
+>>bool++
+--bool+
+-bool*
+/bool!
+&&bool||
+==bool!=
+<=bool>= // end of bool tests
+< int >
+<int>
+{int}
+(int)
+;int,
+=int<<
+>>int++
+--int+
+-int*
+/int!
+&&int||
+==int!=
+<=int>= //end of int tests
+< void >
+<void>
+{void}
+(void)
+;void,
+=void<<
+>>void++
+--void+
+-void*
+/void!
+&&void||
+==void!=
+<=void>= //end of void tests
+< true >
+<true>
+{true}
+(true)
+;true,
+=true<<
+>>true++
+--true+
+-true*
+/true!
+&&true||
+==true!=
+<=true>= //end of true tests
+< false >
+<false>
+{false}
+(false)
+;false,
+=false<<
+>>false++
+--false+
+-false*
+/false!
+&&false||
+==false!=
+<=false>= //end of false tests
+< struct >
+<struct>
+{struct}
+(struct)
+;struct,
+=struct<<
+>>struct++
+--struct+
+-struct*
+/struct!
+&&struct||
+==struct!=
+<=struct>= //end of struct tests
+< cin >
+<cin>
+{cin}
+(cin)
+;cin,
+=cin<<
+>>cin++
+--cin+
+-cin*
+/cin!
+&&cin||
+==cin!=
+<=cin>= //end of cin tests
+< cout >
+<cout>
+{cout}
+(cout)
+;cout,
+=cout<<
+>>cout++
+--cout+
+-cout*
+/cout!
+&&cout||
+==cout!=
+<=cout>= //end of cout tests
+< if >
+<if>
+{if}
+(if)
+;if,
+=if<<
+>>if++
+--if+
+-if*
+/if!
+&&if||
+==if!=
+<=if>= //end of if tests
+< else >
+<else>
+{else}
+(else)
+;else,
+=else<<
+>>else++
+--else+
+-else*
+/else!
+&&else||
+==else!=
+<=else>= //end of else tests
+< while >
+<while>
+{while}
+(while)
+;while,
+=while<<
+>>while++
+--while+
+-while*
+/while!
+&&while||
+==while!=
+<=while>= //end of while tests
+< return >
+<return>
+{return}
+(return)
+;return,
+=return<<
+>>return++
+--return+
+-return*
+/return!
+&&return||
+==return=
+<=return>= //end of return tests
+"" hello ""
+67 _stillID 76
+{_78987}
+;a09586;
+""intint""
+double doubledouble int
+void voidvoid void
+89 truetruefalsestructcincoutifelsewhilereturn 98
+"" booL bool
+"" Bool ""
+"" AnID ""
+< id >
+<ID>
+{_id}
+(_6Id)
+;ID,
+=IID<<
+>>ID_++
+--I_D+
+-___*
+/id!
+&&id||
+==id=
+<=id>= //end of id tests
+< 82 >
+<0>
+{9586465}
+(0000)
+;0001,
+=123456<<
+>>7890++
+--37465+
+-099586*
+/23423!
+&&5476||
+==9846=
+<=50634>= //end of IntLiteral tests
+{}();,.-*/!<><<>>++&&||==!=<=>=bool int void true false struct cin cout if else while return a 8 ""
